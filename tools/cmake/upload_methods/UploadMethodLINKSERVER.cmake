@@ -24,11 +24,12 @@ endif()
 find_package(LinkServer)
 set(UPLOAD_LINKSERVER_FOUND ${LinkServer_FOUND})
 
-if(LinkServer_FOUND)
-	if(${LinkServer_VERSION} VERSION_LESS 1.5.30 AND "${MBED_OUTPUT_EXT}" STREQUAL "hex")
-		message(FATAL_ERROR "LinkServer <1.5.30 does not support flashing hex files! Please upgrade LinkServer and then clean and rebuild the project.")
-	endif()
-endif()
+# mh fixed 27oct26 by disabling this check (obsolete---we are now at version 26!)
+#if(LinkServer_FOUND)
+#	if(${LinkServer_VERSION} VERSION_LESS 1.5.30 AND "${MBED_OUTPUT_EXT}" STREQUAL "hex")
+#		message(FATAL_ERROR "LinkServer <1.5.30 does not support flashing hex files! Please upgrade LinkServer and then clean and rebuild the project.")
+#	endif()
+#endif()
 
 ### Function to generate upload target
 

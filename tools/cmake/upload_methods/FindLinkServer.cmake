@@ -33,7 +33,8 @@ if(EXISTS "${LinkServer_PATH}")
 			OUTPUT_VARIABLE LinkServer_VERSION_OUTPUT)
 
 	# The output looks like "LinkServer v1.2.45 [Build 45] [2023-07-25 09:54:50]", so use a regex to grab the version
-	string(REGEX REPLACE "LinkServer v([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" LinkServer_VERSION ${LinkServer_VERSION_OUTPUT})
+  # mh fixed 27oct26 by adding double quotes around ${LinkServer_VERSION_OUTPUT}
+	string(REGEX REPLACE "LinkServer v([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" LinkServer_VERSION "${LinkServer_VERSION_OUTPUT}")
 endif()
 
 
